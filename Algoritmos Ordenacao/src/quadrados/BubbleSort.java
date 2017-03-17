@@ -6,6 +6,8 @@
 package quadrados;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import library.LerArquivo;
 
 /**
  *
@@ -15,11 +17,14 @@ public class BubbleSort {
 
     public static void main(String[] args) throws IOException {
 
-        int quantidade = 10000;
-        int[] vetor = new int[quantidade];
+        LerArquivo lerArquivo = new LerArquivo();
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList = lerArquivo.getLinhasArquivo(LerArquivo.file5000);
 
-        for (int i = 0; i < vetor.length; i++) {
-            vetor[i] = (int) (Math.random() * quantidade);
+        int[] vetor = new int[arrayList.size()];
+
+        for (int i = 0; i < arrayList.size(); i++) {
+            vetor[i] = Integer.parseInt(arrayList.get(i));
         }
 
         long tempoInicial = System.currentTimeMillis();

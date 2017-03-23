@@ -17,9 +17,11 @@ public class BubbleSort {
 
     public static void main(String[] args) throws IOException {
 
+        double soma = 0;
+
         LerArquivo lerArquivo = new LerArquivo();
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList = lerArquivo.getLinhasArquivo(LerArquivo.file5000);
+        arrayList = lerArquivo.getLinhasArquivo(LerArquivo.file20000);
 
         int[] vetor = new int[arrayList.size()];
 
@@ -34,6 +36,8 @@ public class BubbleSort {
         long tempoFinal = System.currentTimeMillis();
 
         System.out.println("Executado em = " + (tempoFinal - tempoInicial) + " ms");
+
+        soma += (tempoFinal - tempoInicial);
 
     }
 

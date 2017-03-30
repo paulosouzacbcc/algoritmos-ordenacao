@@ -9,32 +9,30 @@ package quadrados;
  *
  * @author paulosouza
  */
-import java.util.Arrays;
-import java.util.Scanner;
+import java.io.IOException;
+import java.util.ArrayList;
+import library.LerArquivo;
 
 public class HeapSort {
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
 
-        int quantidade = 10000;
-        int[] vetor = new int[quantidade];
-        for (int i = 0; i < vetor.length; i++) {
-            vetor[i] = (int) (Math.random() * quantidade);
+        LerArquivo lerArquivo = new LerArquivo();
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList = lerArquivo.getLinhasArquivo(LerArquivo.file20000);
+
+        int[] vetor = new int[arrayList.size()];
+
+        for (int i = 0; i < arrayList.size(); i++) {
+            vetor[i] = Integer.parseInt(arrayList.get(i));
         }
-
-        System.out.println("The unsorted array is:");
-        System.out.println(Arrays.toString(vetor));
 
         long tempoInicial = System.currentTimeMillis();
         heap(vetor);
         long tempoFinal = System.currentTimeMillis();
-        
+
         System.out.println("Executado em = " + (tempoFinal - tempoInicial) + " ms");
 
-
-        System.out.println("The sorted array is:");
-        System.out.println(Arrays.toString(vetor));
-        
     }
 
     static void heapify(int a[], int n, int i) {

@@ -12,6 +12,7 @@ package quadrados;
 public class MergeSort {
 
     public int[] mergeSort(int array[]) {
+
         if (array.length > 1) {
             int elementsInA1 = array.length / 2;
             int elementsInA2 = array.length - elementsInA1;
